@@ -70,7 +70,8 @@ Autosuggest.prototype.get = function () {
  */
 
 Autosuggest.prototype.set = function (v) {
-  return this.suggestions = v;
+  this.suggestions = v;
+  return this.suggestions;
 };
 
 /**
@@ -126,14 +127,14 @@ Autosuggest.prototype.oninput = function () {
   // get current string value
   var value = input.value;
 
-  if (0 == value.length) return; // don't suggest if there's nothing there
+  if (0 === value.length) return; // don't suggest if there's nothing there
 
   var suggestions = this.get();
-  if (!suggestions || 0 == suggestions.length) return; // nothing to do...
+  if (!suggestions || 0 === suggestions.length) return; // nothing to do...
 
   // attempt to find a suggestion
   var suggestion = this.suggest(value, suggestions);
-  if (null == suggestion) return; // got nothing...
+  if (null === suggestion) return; // got nothing...
 
   // we got a suggestion, set it as the input's new value
   input.value = suggestion;

@@ -1,7 +1,10 @@
-all: compile
+all: lint compile
 
 node_modules:
 	npm install && touch $@
+
+lint:
+	@jshint index.js
 
 compile: node_modules index.js
 	@mkdir -p build

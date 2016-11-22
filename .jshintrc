@@ -1,0 +1,10 @@
+{
+  "undef": true,
+  "unused": true,
+  "laxbreak": true,
+  "laxcomma": true,
+  "es5": true,
+  "supernew": false,
+  "browser": true,
+  "node": true
+}
