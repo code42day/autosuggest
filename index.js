@@ -4,9 +4,25 @@
  */
 
 var bind = require('bind');
-var find = require('find');
 var events = require('event');
-var select = require('select');
+
+
+function select(input, start, end) {
+  return input.setSelectionRange(start, end);
+}
+
+
+var find = Array.prototype.find
+  ? function(arr, predicate) { return arr.find(predicate); }
+  : function(arr, predicate) {
+    var found;
+    if (arr.some(function() {
+      found = arguments[0];
+      return predicate.apply(this, arguments);
+    })) {
+      return found;
+    }
+  };
 
 /**
  * Module exports.
@@ -147,6 +163,6 @@ Autosuggest.prototype.oninput = function () {
 Autosuggest.prototype.suggest = function (value, suggestions) {
   var val = value.toLowerCase();
   return find(suggestions, function (suggestion) {
-    return suggestion.toLowerCase().substring(0, val.length) == val;
+    return suggestion.toLowerCase().substring(0, val.length) === val;
   });
 };

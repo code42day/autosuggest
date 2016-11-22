@@ -1,19 +1,23 @@
 {
   "name": "autosuggest",
   "description": "Autosuggest values for text inputs",
-  "keywords": [],
+  "keywords": [
+    "browser",
+    "autocomplete",
+    "autosuggest"
+  ],
   "version": "0.0.3",
   "dependencies": {
-    "bind-component": "*",
-    "event-component": "*",
-    "find": "component/find",
-    "select": "stagas/select"
+    "component-bind": "*",
+    "component-event": "*"
   },
-  "component": {
-    "scripts": {
-      "autosuggest/index.js": "autosuggest.js"
-    }
+  "browser": {
+    "bind": "component-bind",
+    "event": "component-event"
   },
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/component/autosuggest.git"
